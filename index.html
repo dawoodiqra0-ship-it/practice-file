@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aura is a fluid interaction system for clear, responsive digital workflows." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Aura — Fluid Drag Interactions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Aura home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 2 29 26H3L16 2Z" fill="currentColor"/>
+        <circle cx="16" cy="18" r="5.5" fill="white"/>
+      </svg>
+      <span>AURA<sup>®</sup></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#signal">Signal</a>
+      <a href="#systems">Systems</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="sound-toggle" type="button" aria-pressed="false">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sound-label">Sound off</span>
+      </button>
+      <a class="pill-button magnetic" href="#systems">
+        <span>Enter canvas</span>
+        <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4"/></svg>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#signal">Signal <span>01</span></a>
+      <a href="#systems">Systems <span>02</span></a>
+      <a href="#about">About <span>03</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-canvas panel reveal">
+        <canvas id="field-canvas" aria-hidden="true"></canvas>
+        <div class="panel-topline">
+          <div class="eyebrow"><span class="live-dot"></span> Live metrics</div>
+          <div class="mono muted">AURA / 001—026</div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="kicker">Aura systems presents</p>
+          <h1 id="hero-title"><span>Fluid Drag</span><span>Interactions.</span></h1>
+          <p class="hero-intro">Grab, move, and arrange the elements freely across the canvas.</p>
+        </div>
+
+        <div class="drag-stage" id="drag-stage" aria-label="Interactive draggable interface cards">
+          <article class="drag-card sync-card draggable" tabindex="0" style="--x: 4%; --y: 8%; --tilt: -4deg;" aria-label="Data sync flow card. Drag to move.">
+            <div class="drag-handle"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="card-label">Data sync flow</div>
+            <div class="sync-visual" aria-hidden="true">
+              <div class="node node-a">A</div>
+              <svg viewBox="0 0 126 48"><path d="M24 24 C48 5 79 43 103 24"/><path class="pulse-path" d="M24 24 C48 5 79 43 103 24"/></svg>
+              <div class="node node-b">B</div>
+            </div>
+            <div class="card-foot"><span>Connected</span><span class="mono">24 ms</span></div>
+          </article>
+
+          <article class="drag-card orbit-card draggable" tabindex="0" style="--x: 43%; --y: 1%; --tilt: 3deg;" aria-label="Aura signal card. Drag to move.">
+            <div class="drag-handle light"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="orbit" aria-hidden="true"><i></i><i></i><b></b></div>
+            <div class="orbit-meta"><span>Signal</span><strong>87%</strong></div>
+          </article>
+
+          <article class="drag-card chart-card draggable" tabindex="0" style="--x: 65%; --y: 50%; --tilt: -2deg;" aria-label="Live activity chart. Drag to move.">
+            <div class="drag-handle"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="card-label">Live activity</div>
+            <div class="mini-chart" aria-hidden="true">
+              <i style="--h: 32%"></i><i style="--h: 57%"></i><i style="--h: 43%"></i><i style="--h: 78%"></i><i style="--h: 62%"></i><i style="--h: 91%"></i><i style="--h: 73%"></i>
+            </div>
+            <div class="card-foot"><span>+18.4%</span><span class="mono">12:48:09</span></div>
+          </article>
+
+          <div class="drag-instruction"><span class="drag-icon">↖</span><span>Grab &amp; move<br />the objects</span></div>
+        </div>
+
+        <div class="hero-index mono">01 <span></span> Interaction layer</div>
+      </div>
+
+      <aside class="focus-panel reveal reveal-delay" aria-labelledby="focus-title">
+        <div class="focus-topline">
+          <span class="eyebrow light-text">Pure minimal</span>
+          <span class="mono">02 / 04</span>
+        </div>
+        <div class="focus-orb" aria-hidden="true">
+          <div class="orb-sphere"></div>
+          <div class="orb-ring ring-one"></div>
+          <div class="orb-ring ring-two"></div>
+        </div>
+        <div class="focus-copy">
+          <p>Space gives</p>
+          <h2 id="focus-title">Focus.</h2>
+        </div>
+        <div class="focus-footer">
+          <p>Calm interfaces make every signal feel more intentional.</p>
+          <div class="corner-arrow">↗</div>
+        </div>
+      </aside>
+
+      <div class="manifesto-strip reveal">
+        <div class="strip-label mono">Manifesto / 2026</div>
+        <div class="marquee" aria-label="The next wave of interaction design">
+          <div class="marquee-track">
+            <span>The next wave of <em>interact design</em></span><i>✦</i>
+            <span aria-hidden="true">The next wave of <em>interact design</em></span><i aria-hidden="true">✦</i>
+          </div>
+        </div>
+        <a href="#signal" class="round-link" aria-label="Explore the signal section">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="signal-section" id="signal" aria-labelledby="signal-title">
+      <div class="section-heading reveal">
+        <div class="section-id mono"><span>02</span> Intelligence, in motion</div>
+        <h2 id="signal-title">Designed to move<br />as fast as <em>thought.</em></h2>
+        <p>Intelligence should feel fluid—not forced. Aura turns complex systems into direct, tactile experiences.</p>
+      </div>
+
+      <div class="signal-grid">
+        <article class="metric-card dark-card reveal">
+          <div class="card-head">
+            <span class="eyebrow light-text">System confidence</span>
+            <span class="status-chip"><i></i> Stable</span>
+          </div>
+          <div class="metric-number"><strong data-count="99">0</strong><span>%</span></div>
+          <div class="metric-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="card-bottom">
+            <span class="mono">HEX 99</span>
+            <p>Every layer speaks the same visual language.</p>
+          </div>
+        </article>
+
+        <article class="network-card reveal reveal-delay">
+          <div class="card-head">
+            <span class="eyebrow">Adaptive network</span>
+            <button class="icon-button" type="button" aria-label="Refresh network animation">↻</button>
+          </div>
+          <div class="network-map" aria-hidden="true">
+            <svg viewBox="0 0 500 310" role="img">
+              <defs>
+                <radialGradient id="node-glow"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#5B1E91"/></radialGradient>
+              </defs>
+              <g class="network-lines">
+                <path d="M82 198 177 95 264 167 375 73 426 217 299 253 177 95 194 245 82 198 264 167 426 217"/>
+                <path d="M82 198 264 167 299 253M375 73 264 167 177 95"/>
+              </g>
+              <g class="network-nodes">
+                <circle cx="82" cy="198" r="9"/><circle cx="177" cy="95" r="13"/><circle cx="264" cy="167" r="20" class="main-node"/><circle cx="375" cy="73" r="8"/><circle cx="426" cy="217" r="12"/><circle cx="299" cy="253" r="7"/><circle cx="194" cy="245" r="9"/>
+              </g>
+            </svg>
+            <span class="map-label label-one mono">L-001</span>
+            <span class="map-label label-two mono">CORE</span>
+            <span class="map-label label-three mono">L-024</span>
+          </div>
+          <div class="network-footer"><strong>24</strong><span>live connections<br />thinking as one.</span></div>
+        </article>
+
+        <article class="principle-card reveal">
+          <div class="shape-window" aria-hidden="true">
+            <div class="shape shape-one"></div><div class="shape shape-two"></div><div class="shape shape-three"></div>
+          </div>
+          <div class="principle-copy">
+            <span class="mono">PRINCIPLE 03</span>
+            <blockquote>“Clarity is not the absence of complexity. It is complexity, beautifully arranged.”</blockquote>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="systems-section" id="systems" aria-labelledby="systems-title">
+      <div class="systems-glow" aria-hidden="true"></div>
+      <div class="systems-header reveal">
+        <div>
+          <span class="section-id mono"><span>03</span> Aura systems</span>
+          <h2 id="systems-title">Expanding the<br /><em>digital mind.</em></h2>
+        </div>
+        <div class="systems-intro">
+          <p>One fluid framework. Infinite ways to think, build, and connect.</p>
+          <a href="#contact" class="text-link">Explore all systems <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="systems-grid">
+        <article class="system-module module-tall reveal">
+          <div class="module-head"><span class="mono">01 / FLOW</span><span class="module-status">Live</span></div>
+          <div class="flow-field" aria-hidden="true">
+            <div class="flow-core"><span>A</span></div>
+            <i style="--r: 56px;--d: 5s"></i><i style="--r: 91px;--d: 7s"></i><i style="--r: 126px;--d: 9s"></i>
+            <b class="satellite sat-one"></b><b class="satellite sat-two"></b><b class="satellite sat-three"></b>
+          </div>
+          <div class="module-copy"><h3>Fluid workflows</h3><p>Orchestrate changing information without losing the human thread.</p></div>
+        </article>
+
+        <article class="system-module module-wide reveal reveal-delay">
+          <div class="module-head"><span class="mono">02 / SENSE</span><span class="mono">SYNC 100%</span></div>
+          <div class="wave-display" aria-hidden="true">
+            <svg viewBox="0 0 700 210" preserveAspectRatio="none">
+              <path class="wave-back" d="M0 120 C80 40 118 180 190 106S310 44 382 113 490 176 552 96 648 35 700 102"/>
+              <path class="wave-front" d="M0 120 C80 40 118 180 190 106S310 44 382 113 490 176 552 96 648 35 700 102"/>
+            </svg>
+            <div class="scanline"></div>
+          </div>
+          <div class="module-copy horizontal"><h3>Responsive by nature</h3><p>Every motion listens. Every response arrives with context.</p></div>
+        </article>
+
+        <article class="system-module module-small reveal">
+          <div class="module-head"><span class="mono">03 / FOCUS</span><span class="mono">± 0.01</span></div>
+          <div class="focus-dial" aria-hidden="true"><div><span>01</span></div></div>
+          <div class="module-copy"><h3>Signal over noise</h3><p>Only what matters, exactly when it matters.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing-section" id="about" aria-labelledby="closing-title">
+      <div class="closing-meta mono reveal"><span>Designed for momentum</span><span>AURA® / EST. 2026</span></div>
+      <div class="closing-copy reveal">
+        <p>When tools disappear,<br />ideas move freely.</p>
+        <h2 id="closing-title">Make space<br />for <em>what's next.</em></h2>
+      </div>
+      <a class="closing-orb magnetic" href="mailto:hello@aura.systems" id="contact">
+        <span>Start a signal</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg>
+      </a>
+      <footer>
+        <a class="brand footer-brand" href="#top" aria-label="Back to top">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 29 26H3L16 2Z" fill="currentColor"/><circle cx="16" cy="18" r="5.5" fill="#111111"/></svg>
+          <span>AURA<sup>®</sup></span>
+        </a>
+        <p>Fluid systems for intelligent work.</p>
+        <div class="footer-links"><a href="#top">Instagram</a><a href="#top">Are.na</a><a href="#top">LinkedIn</a></div>
+        <span class="mono">© 2026</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
