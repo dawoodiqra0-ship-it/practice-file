@@ -12,7 +12,7 @@ Then open `http://localhost:4173`.
 
 ## Publish
 
-The included GitHub Actions workflow deploys the static files to GitHub Pages on pushes to `main` or the Arena working branch. In **Settings → Pages**, set the source to **GitHub Actions** if it is not already selected.
+The site is ready for GitHub Pages and includes `.nojekyll`. After merging to `main`, open **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/ (root)`, then save.
 
 ## Stack
 
