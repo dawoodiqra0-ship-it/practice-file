@@ -186,7 +186,7 @@ svg { display: block; }
 .strip-label { padding-left:30px; }
 .marquee { overflow:hidden; }
 .marquee-track { display:flex; width:max-content; align-items:center; gap:34px; animation:marquee 18s linear infinite; }
-.marquee-track span { white-space:nowrap; font-size:clamp(42px,5.15vw,80px); letter-spacing:-.065em; font-weight:600; }
+.marquee-track span { white-space:nowrap; font-size:clamp(42px,5.15vw,80px); letter-spacing:-.065em; font-weight:600; text-transform:uppercase; }
 .marquee-track em { font-family:Georgia,serif; font-weight:400; }
 .marquee-track i { font-size:40px; font-style:normal; }
 @keyframes marquee { to { transform:translateX(calc(-50% - 17px)); } }

@@ -176,8 +176,8 @@
           context.fill();
         }
       }
-      time += reducedMotion ? 0 : .012;
-      rafId = requestAnimationFrame(draw);
+      time += .012;
+      if (!reducedMotion) rafId = requestAnimationFrame(draw);
     };
 
     panel.addEventListener('pointermove', (event) => {
